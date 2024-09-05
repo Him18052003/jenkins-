@@ -1,0 +1,18 @@
+node {
+
+    stage('git clone') {
+        git branch: 'main', url: 'https://github.com/Him18052003/Boss.git'
+    }
+    stage('init') {
+    dir('day-2') {
+        sh  'terraform init'
+            }
+        }
+    stage('plan') {
+           dir('day-2') {
+        sh  'terraform apply -auto-approve'
+        
+    }
+}
+
+}
